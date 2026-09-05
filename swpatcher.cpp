@@ -145,6 +145,8 @@ int main(int argc, char **argv)
     fs::recursive_directory_iterator it(patchedPath);
     fs::recursive_directory_iterator end;
 
+    std::cout << "copying files...\n";
+
     for (; it != end; ++it)
     {
         const auto &entry = *it;
@@ -173,6 +175,8 @@ int main(int argc, char **argv)
                 fs::copy_options::overwrite_existing);
         }
     }
+
+    std::cout << "copied files. launching game\n";
 
     executablePath = "\"" + executablePath + "\"";
 
